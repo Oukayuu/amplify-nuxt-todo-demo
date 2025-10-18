@@ -53,23 +53,15 @@
     <div class="collapse-content">
       <p class="text-primary" v-text="todo.description"></p>
       <div class="flex justify-center mt-4">
-        <a
-          class="btn capitalize rounded-xl text-primary pmdr-bg-color shadow-sm text-lg font-medium mx-auto"
-          :href="`https://pomodoro.ir/?new-task=${todo.title}`"
-          target="_blank"
-          @click.stop
-        >
-          Pomodoro 🍅
-        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import ChevronDownIcon from "@/components/icons/ChevronDown.vue"
-import ChevronRightIcon from "@/components/icons/ChevronRight.vue"
-import MoreIcon from "@/components/icons/More.vue"
+import ChevronDownIcon from "~/components/icons/ChevronDown.vue"
+import ChevronRightIcon from "~/components/icons/ChevronRight.vue"
+import MoreIcon from "~/components/icons/More.vue"
 
 const props = defineProps<{
   todo: ITodo

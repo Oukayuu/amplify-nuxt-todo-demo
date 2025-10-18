@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   ssr: false,
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@vite-pwa/nuxt"],
   css: ["@/assets/styles/main.css"],
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   imports: {
     dirs: ["./app/stores"],
   },

@@ -21,7 +21,7 @@ import type {
   GraphQLResponseV6,
 } from "@aws-amplify/api-graphql";
 
-import outputs from "../amplify_outputs.json";
+import outputs from "~~/amplify_outputs.json";
 
 // parse the content of `amplify_outputs.json` into the shape of ResourceConfig
 const amplifyConfig = parseAmplifyConfig(outputs);

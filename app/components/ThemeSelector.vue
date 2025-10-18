@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-import LayersIcon from "@/components/icons/Layers.vue"
+import LayersIcon from "~/components/icons/Layers.vue"
 
 const open = ref<boolean>(false)
 const { setTheme } = useThemesStore()

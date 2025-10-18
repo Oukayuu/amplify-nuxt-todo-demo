@@ -4,10 +4,7 @@ export default defineNuxtConfig({
   css: ["@/assets/styles/main.css"],
   devtools: { enabled: true },
   imports: {
-    dirs: ["./stores"],
-  },
-  pinia: {
-    autoImports: ["defineStore", "acceptHMRUpdate"],
+    dirs: ["./app/stores"],
   },
   nitro: {
     prerender: {

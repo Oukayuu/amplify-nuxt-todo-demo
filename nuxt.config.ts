@@ -1,5 +1,4 @@
 export default defineNuxtConfig({
-  ssr: false,
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@vite-pwa/nuxt"],
   css: ["@/assets/styles/main.css"],
   devtools: { enabled: false },
@@ -7,9 +6,10 @@ export default defineNuxtConfig({
     dirs: ["./app/stores"],
   },
   nitro: {
-    prerender: {
-      routes: ["/"],
-    },
+    awsAmplify:{
+      //@ts-expect-error 22.xのランタイムを指定
+      runtime:"nodejs22.x"
+    }
   },
   pwa: {
     registerType: "autoUpdate",

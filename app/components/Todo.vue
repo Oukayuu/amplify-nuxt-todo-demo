@@ -39,7 +39,7 @@
                 <button @click="deleteTodo({ id: todo.id })">Delete</button>
               </template>
               <template v-else>
-                <button>Edit</button>
+                <button @click="openEditModal">Edit</button>
                 <span> / </span>
                 <button @click="archiveTodo({ id: todo.id })">Archive</button>
                 <span> / </span>
@@ -52,23 +52,88 @@
     </div>
     <div class="collapse-content">
       <p class="text-primary" v-text="todo.description"></p>
-      <div class="flex justify-center mt-4">
-      </div>
+      <div class="flex justify-center mt-4"></div>
     </div>
   </div>
+  <!-- 編集モーダル -->
+  <dialog ref="editModal" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg mb-4">Edit Todo</h3>
+      <form @submit.prevent="handleSubmit">
+        <div class="form-control mb-4">
+          <label class="label">
+            <span class="label-text">Title</span>
+          </label>
+          <input
+            v-model="editForm.title"
+            type="text"
+            class="input input-bordered w-full"
+            required
+          />
+        </div>
+        <div class="form-control mb-4">
+          <label class="label">
+            <span class="label-text">Description</span>
+          </label>
+          <textarea
+            v-model="editForm.description"
+            class="textarea textarea-bordered w-full"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="modal-action">
+          <button type="button" class="btn" @click="closeEditModal">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
 </template>
 
 <script lang="ts" setup>
-import ChevronDownIcon from "~/components/icons/ChevronDown.vue"
-import ChevronRightIcon from "~/components/icons/ChevronRight.vue"
-import MoreIcon from "~/components/icons/More.vue"
+import ChevronDownIcon from "~/components/icons/ChevronDown.vue";
+import ChevronRightIcon from "~/components/icons/ChevronRight.vue";
+import MoreIcon from "~/components/icons/More.vue";
 
 const props = defineProps<{
-  todo: ITodo
-  isArchive: boolean
-}>()
+  todo: ITodo;
+  isArchive: boolean;
+}>();
 
-const { doneToggleTodo, deleteTodo, archiveTodo, restoreTodo } = useTodosStore()
+const { doneToggleTodo, updateTodo, deleteTodo, archiveTodo, restoreTodo } =
+  useTodosStore();
 
-const isOpen = ref<boolean>(false)
+const isOpen = ref<boolean>(false);
+
+const editModal = ref<HTMLDialogElement>();
+
+// 編集フォームの状態
+const editForm = ref({
+  title: "",
+  description: "",
+});
+
+// モーダルを開く
+const openEditModal = () => {
+  editForm.value.title = props.todo.title;
+  editForm.value.description = props.todo.description;
+  editModal.value?.showModal();
+};
+
+// モーダルを閉じる
+const closeEditModal = () => {
+  editModal.value?.close();
+};
+
+// 編集を実行
+const handleSubmit = () => {
+  updateTodo({
+    id: props.todo.id,
+    title: editForm.value.title,
+    description: editForm.value.description,
+  });
+  closeEditModal();
+};
 </script>

@@ -7,7 +7,7 @@ import {
 } from "aws-amplify/auth";
 import { generateClient } from "aws-amplify/data";
 import outputs from "~~/amplify_outputs.json";
-import type { Schema } from "@/amplify/data/resource";
+import type { Schema } from "~~/amplify/data/resource";
 import { Amplify } from "aws-amplify";
 
 // configure the Amplify client library

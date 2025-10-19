@@ -10,7 +10,7 @@ import {
 import { parseAmplifyConfig } from "aws-amplify/utils";
 
 import type { LibraryOptions } from "@aws-amplify/core";
-import outputs from "~/amplify_outputs.json";
+import outputs from "~~/amplify_outputs.json";
 
 const amplifyConfig = parseAmplifyConfig(outputs);
 

@@ -2,7 +2,6 @@
   <main class="xl:mx-20">
     <nav class="flex justify-end pt-5 px-4">
       <div class="flex">
-        <Period />
         <Backup />
         <Archives />
       </div>

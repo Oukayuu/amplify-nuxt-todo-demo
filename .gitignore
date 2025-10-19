@@ -24,3 +24,4 @@ logs
 
 # Amplify files
 amplify_outputs.json
+.amplify/

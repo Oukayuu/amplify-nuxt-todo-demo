@@ -9,10 +9,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@aws-amplify/ui-vue": "^4.3.5",
     "@pinia/nuxt": "^0.11.2",
+    "aws-amplify": "^6.15.6",
     "nuxt": "^4.1.2",
     "uuid": "^13.0.0",
-    "aws-amplify": "^6.15.6",
     "vue": "latest"
   },
   "devDependencies": {

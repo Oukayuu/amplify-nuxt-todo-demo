@@ -4,6 +4,7 @@
       <div class="flex">
         <Backup />
         <Archives />
+        <Logout />
       </div>
     </nav>
     <div

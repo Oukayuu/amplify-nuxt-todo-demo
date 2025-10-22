@@ -6,11 +6,9 @@ import "@aws-amplify/ui-vue/styles.css";
 <template>
   <main>
     <authenticator>
-      <template v-slot="{ signOut }">
         <VitePwaManifest />
         <NuxtPage />
-        <button @click="signOut">Sign Out</button>
-      </template>
     </authenticator>
   </main>
 </template>
+Ï

@@ -2,9 +2,9 @@
   <main class="xl:mx-20">
     <nav class="flex justify-end pt-5 px-4">
       <div class="flex">
-        <Period />
         <Backup />
         <Archives />
+        <Logout />
       </div>
     </nav>
     <div
@@ -66,5 +66,5 @@ import { storeToRefs } from "pinia"
 const todosStore = useTodosStore()
 const { lowTodos, mediumTodos, highTodos } = storeToRefs(todosStore)
 
-useHead({ title: "Todolist | تودولیست", htmlAttrs: { "data-theme": "light" } })
+useHead({ title: "TodoList", htmlAttrs: { "data-theme": "light" } })
 </script>

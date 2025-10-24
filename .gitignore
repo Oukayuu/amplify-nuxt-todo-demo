@@ -7,9 +7,6 @@ dist
 
 # Node dependencies
 node_modules
-yarn.lock
-package-lock.json
-yarn.lock
 
 # Logs
 logs
@@ -24,3 +21,7 @@ logs
 .env
 .env.*
 !.env.example
+
+# Amplify files
+amplify_outputs.json
+.amplify/

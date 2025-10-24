@@ -1,18 +1,15 @@
 export default defineNuxtConfig({
-  ssr: false,
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@vite-pwa/nuxt"],
   css: ["@/assets/styles/main.css"],
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   imports: {
-    dirs: ["./stores"],
-  },
-  pinia: {
-    autoImports: ["defineStore", "acceptHMRUpdate"],
+    dirs: ["./app/stores"],
   },
   nitro: {
-    prerender: {
-      routes: ["/"],
-    },
+    awsAmplify:{
+      //@ts-expect-error 22.xのランタイムを指定
+      runtime:"nodejs22.x"
+    }
   },
   pwa: {
     registerType: "autoUpdate",
